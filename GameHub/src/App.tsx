@@ -12,8 +12,8 @@ function App() {
           </div>
         </div>
         <div className="row">
-          <div className="col d-none d-lg-block bg-danger">Aside</div>
-          <div className="col  bg-success">
+          <div className="col d-none d-lg-block">Aside</div>
+          <div className="col">
             <GameGrid />
           </div>
         </div>
