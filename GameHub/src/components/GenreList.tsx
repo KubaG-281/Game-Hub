@@ -5,9 +5,17 @@ const GenreList = () => {
   return (
     <>
       {error && <div className="text-danger">{error}</div>}
-      <ul>
+      <ul className="list-unstyled">
         {data.map((genre) => (
-          <li key={genre.id}>{genre.name}</li>
+          <div className="d-flex align-items-center mb-2" key={genre.id}>
+            <img
+              className="rounded me-2"
+              width="36px"
+              height="36px"
+              src={genre.image_background}
+            />
+            <div>{genre.name}</div>
+          </div>
         ))}
       </ul>
     </>
