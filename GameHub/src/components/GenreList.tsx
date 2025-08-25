@@ -1,10 +1,19 @@
+import { BsFileEarmarkRichtext } from "react-icons/bs";
 import useGenres from "../hooks/useGenres";
 
 const GenreList = () => {
-  const { error, data } = useGenres();
+  const { error, data, isLoading } = useGenres();
+
+  if (error) return null;
+  if (isLoading)
+    return (
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+
   return (
     <>
-      {error && <div className="text-danger">{error}</div>}
       <ul className="list-unstyled">
         {data.map((genre) => (
           <div className="d-flex align-items-center mb-2" key={genre.id}>

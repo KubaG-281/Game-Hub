@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col">
+          <div className="col mb-3">
             <Navbar />
           </div>
         </div>
