@@ -1,5 +1,6 @@
 import "./App.css";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 import Navbar from "./components/NavBar";
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
           </div>
         </div>
         <div className="row">
-          <div className="col-2 d-none d-lg-block"></div>
+          <div className="col-2 d-none d-lg-block">
+            <GenreList />
+          </div>
           <div className="col">
             <GameGrid />
           </div>

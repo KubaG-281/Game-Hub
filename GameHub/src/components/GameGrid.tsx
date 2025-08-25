@@ -13,8 +13,8 @@ const GameGrid = () => {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {isLoading &&
             skeletons.map((s) => (
-              <div className="col">
-                <GameCardSkeleton key={s} />
+              <div key={s} className="col">
+                <GameCardSkeleton />
               </div>
             ))}
           {games.map((game) => (
