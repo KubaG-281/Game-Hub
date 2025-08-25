@@ -12,7 +12,7 @@ function App() {
           </div>
         </div>
         <div className="row">
-          <div className="col-2 d-none d-lg-block">Aside</div>
+          <div className="col-2 d-none d-lg-block"></div>
           <div className="col">
             <GameGrid />
           </div>
