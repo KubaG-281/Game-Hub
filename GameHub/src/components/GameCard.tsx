@@ -8,7 +8,7 @@ interface Props {
 }
 const GameCard = ({ game }: Props) => {
   return (
-    <div className="card border border-grey">
+    <div className="card card-fixed border border-grey">
       <img
         src={getCroppedImageUrl(game.background_image)}
         className="card-img-top"
