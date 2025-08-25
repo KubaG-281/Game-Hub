@@ -1,15 +1,18 @@
 import { type Game, type Platform } from "../hooks/useGames";
+import getCroppedImageUrl from "../services/imageUrl";
 import CardCriticScore from "./CardCriticScore";
 import PlatformListIcon from "./PlatformListIcon";
 
 interface Props {
   game: Game;
 }
-
 const GameCard = ({ game }: Props) => {
   return (
     <div className="card border border-grey">
-      <img src={game.background_image} className="card-img-top" />
+      <img
+        src={getCroppedImageUrl(game.background_image)}
+        className="card-img-top"
+      />
       <div className="card-body">
         <h5 className="card-title">{game.name}</h5>
         <div className="d-flex justify-content-between card-text">
