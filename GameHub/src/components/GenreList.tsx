@@ -1,7 +1,11 @@
-import { BsFileEarmarkRichtext } from "react-icons/bs";
-import useGenres from "../hooks/useGenres";
+import useGenres, { type Genre } from "../hooks/useGenres";
 
-const GenreList = () => {
+interface Props {
+  setGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
+}
+
+const GenreList = ({ setGenre, selectedGenre }: Props) => {
   const { error, data, isLoading } = useGenres();
 
   if (error) return null;
@@ -16,14 +20,24 @@ const GenreList = () => {
     <>
       <ul className="list-unstyled">
         {data.map((genre) => (
-          <div className="d-flex align-items-center mb-2" key={genre.id}>
+          <div className={"d-flex align-items-center mb-2 "} key={genre.id}>
             <img
               className="rounded me-2"
               width="36px"
               height="36px"
               src={genre.image_background}
             />
-            <div>{genre.name}</div>
+            <div
+              className={`genre-text ${
+                genre.id === selectedGenre?.id ? "fw-bold fs-5" : "fs-6"
+              }
+            `}
+              onClick={() => {
+                setGenre(genre);
+              }}
+            >
+              {genre.name}
+            </div>
           </div>
         ))}
       </ul>
