@@ -1,4 +1,22 @@
-const SortSelector = () => {
+interface Props {
+  onSelectSortOrder: (value: string) => void;
+  sortOrder: string;
+}
+
+const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
+  const sortOrders = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
+
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === sortOrder
+  );
+
   return (
     <div className="dropdown">
       <button
@@ -7,27 +25,19 @@ const SortSelector = () => {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Order by: Relevance
+        Order by: {currentSortOrder?.label || "Relevance"}
       </button>
       <ul className="dropdown-menu">
-        <li>
-          <button className="dropdown-item">Relevance</button>
-        </li>
-        <li>
-          <button className="dropdown-item">Date added</button>
-        </li>
-        <li>
-          <button className="dropdown-item">Name</button>
-        </li>
-        <li>
-          <button className="dropdown-item">Release date</button>
-        </li>
-        <li>
-          <button className="dropdown-item">Popularity</button>
-        </li>
-        <li>
-          <button className="dropdown-item">Average rating</button>
-        </li>
+        {sortOrders.map((order) => (
+          <li key={order.value}>
+            <button
+              onClick={() => onSelectSortOrder(order.value)}
+              className="dropdown-item"
+            >
+              {order.label}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
