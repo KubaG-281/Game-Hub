@@ -1,4 +1,4 @@
-import { type Game, type Platform } from "../hooks/useGames";
+import type { Game } from "../hooks/useGames";
 import getCroppedImageUrl from "../services/imageUrl";
 import CardCriticScore from "./CardCriticScore";
 import PlatformListIcon from "./PlatformListIcon";
