@@ -4,6 +4,7 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import Navbar from "./components/NavBar";
 import { type Genre } from "./hooks/useGenres";
+import PlatformSelector from "./components/PlatformSelector";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -23,6 +24,7 @@ function App() {
             />
           </div>
           <div className="col">
+            <PlatformSelector />
             <GameGrid selectedGenre={selectedGenre} />
           </div>
         </div>
