@@ -5,9 +5,14 @@ import GenreList from "./components/GenreList";
 import Navbar from "./components/NavBar";
 import { type Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
+import { type Platform } from "./hooks/usePlatforms";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
+
   return (
     <>
       <div className="container-fluid">
@@ -24,8 +29,14 @@ function App() {
             />
           </div>
           <div className="col">
-            <PlatformSelector />
-            <GameGrid selectedGenre={selectedGenre} />
+            <PlatformSelector
+            selectedPlatform={selectedPlatform}
+              selectPlatform={(platform) => setSelectedPlatform(platform)}
+            />
+            <GameGrid
+              selectedPlatform={selectedPlatform}
+              selectedGenre={selectedGenre}
+            />
           </div>
         </div>
       </div>
