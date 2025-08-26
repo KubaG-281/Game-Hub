@@ -14,13 +14,13 @@ const GameCard = ({ game }: Props) => {
         className="card-img-top"
       />
       <div className="card-body">
-        <h5 className="card-title">{game.name}</h5>
-        <div className="d-flex justify-content-between card-text">
+        <div className="d-flex justify-content-between card-text mb-2">
           <PlatformListIcon
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
           <CardCriticScore criticScore={game.metacritic} />
         </div>
+        <h5 className="card-title">{game.name}</h5>
       </div>
     </div>
   );
