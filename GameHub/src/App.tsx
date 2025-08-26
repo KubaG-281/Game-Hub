@@ -6,6 +6,7 @@ import Navbar from "./components/NavBar";
 import { type Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { type Platform } from "./hooks/usePlatforms";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre;
@@ -31,12 +32,15 @@ function App() {
             />
           </div>
           <div className="col">
-            <PlatformSelector
-              selectedPlatform={gameQuery.platform}
-              selectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
-              }
-            />
+            <div className="d-flex ps-2 mb-4">
+              <PlatformSelector
+                selectedPlatform={gameQuery.platform}
+                selectPlatform={(platform) =>
+                  setGameQuery({ ...gameQuery, platform })
+                }
+              />
+              <SortSelector />
+            </div>
             <GameGrid gameQuery={gameQuery} />
           </div>
         </div>

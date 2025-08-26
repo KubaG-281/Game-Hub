@@ -11,7 +11,7 @@ const PlatformSelector = ({ selectPlatform, selectedPlatform }: Props) => {
   if (error) return null;
 
   return (
-    <div className="dropdown mb-3">
+    <div className="dropdown mb-3 me-3">
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
