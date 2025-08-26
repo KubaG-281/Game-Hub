@@ -6,7 +6,7 @@ const CardCriticScore = ({ criticScore }: Props) => {
   return (
     <div
       className={`border border-2 border-grey ${
-        criticScore > 90 ? "bg-success" : "bg-danger"
+        criticScore > 80 ? "bg-success" : "bg-danger"
       } px-2 rounded`}
     >
       {criticScore}
