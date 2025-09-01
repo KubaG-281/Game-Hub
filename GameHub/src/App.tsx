@@ -34,7 +34,7 @@ function App() {
               setGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
             />
           </div>
-          <div className="col">
+          <div className="col px-5">
             <div className="ps-2">
               <GameHeading gameObject={gameQuery} />
               <div className="d-flex mb-4 pt-3">
