@@ -20,7 +20,7 @@ const GenreList = ({ setGenre, selectedGenre }: Props) => {
     <>
       <h4 className="fw-bold mb-3">Genres</h4>
       <ul className="list-unstyled">
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <div className={"d-flex align-items-center mb-2 "} key={genre.id}>
             <img
               className="rounded me-2 object-fit-cover"

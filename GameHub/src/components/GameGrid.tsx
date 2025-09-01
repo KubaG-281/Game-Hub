@@ -12,7 +12,7 @@ const GameGrid = ({ gameQuery }: Props) => {
   const { data, isLoading, error } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
-  if (error) return <h3 className="text-danger">{error}</h3>;
+  if (error) return <h3 className="text-danger">{error.message}</h3>;
 
   return (
     <div className="container-fluid">
@@ -23,7 +23,7 @@ const GameGrid = ({ gameQuery }: Props) => {
                 <GameCardSkeleton />
               </div>
             ))
-          : data.map((game) => (
+          : data?.results.map((game) => (
               <div className="col" key={game.id}>
                 <GameCard game={game} />
               </div>
