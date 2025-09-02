@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import apiClient, { type FetchResponse } from "../services/apiClient";
 import genres from "../data/genres";
+import APIClient from "../services/apiClient";
 
 export interface Genre {
   id: number;
@@ -9,8 +9,10 @@ export interface Genre {
   slug: string;
 }
 
+const apiClient = new APIClient<Genre>('/genres')
+
 const useGenres = () => {
-  const fetchGenres = () => apiClient.get<FetchResponse<Genre>>('/genres').then(res => res.data)
+  const fetchGenres = () => apiClient.getAll()
 
   return useQuery({
     queryKey: ['genres'],
