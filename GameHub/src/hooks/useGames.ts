@@ -3,6 +3,7 @@ import type { GameQuery } from "../App";
 import { type Genre } from "./useGenres";
 import type { Platform } from "./usePlatforms";
 import APIClient from "../services/apiClient";
+import ms from "ms";
 
 export interface Game {
   id: number;
@@ -31,7 +32,7 @@ const useGames = (gameQuery: GameQuery) => {
   return useInfiniteQuery({
     queryKey: ['games', gameQuery],
     queryFn: fetchGames,
-    staleTime: 5 * 1000,
+    staleTime: ms('1d'),
     getNextPageParam: (lastPage, allPages) => {
      return lastPage.next ?  allPages.length + 1: undefined;
     },
