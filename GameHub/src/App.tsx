@@ -3,15 +3,13 @@ import "./App.css";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import Navbar from "./components/NavBar";
-import { type Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import { type Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   text: string;
 }
@@ -30,8 +28,10 @@ function App() {
         <div className="row">
           <div className="col-2 d-none d-lg-block">
             <GenreList
-              selectedGenre={gameQuery.genre}
-              setGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreId={gameQuery.genreId}
+              setGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </div>
           <div className="col px-5">
@@ -39,9 +39,9 @@ function App() {
               <GameHeading gameObject={gameQuery} />
               <div className="d-flex mb-4 pt-3">
                 <PlatformSelector
-                  selectedPlatform={gameQuery.platform}
+                  selectedPlatformId={gameQuery.platformId}
                   selectPlatform={(platform) =>
-                    setGameQuery({ ...gameQuery, platform })
+                    setGameQuery({ ...gameQuery, platformId: platform.id })
                   }
                 />
                 <SortSelector

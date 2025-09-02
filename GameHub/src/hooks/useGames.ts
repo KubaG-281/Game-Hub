@@ -19,8 +19,8 @@ const apiClient = new APIClient<Game>('/games')
 const useGames = (gameQuery: GameQuery) => {
   const fetchGames = ({pageParam = 1}) => 
     apiClient.getAll({params: {
-        genres: gameQuery.genre?.id,
-        parent_platforms: gameQuery.platform?.id,
+        genres: gameQuery.genreId,
+        parent_platforms: gameQuery.platformId,
         ordering: gameQuery.sortOrder,
         search: gameQuery.text,
         page: pageParam

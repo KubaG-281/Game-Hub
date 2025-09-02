@@ -49,7 +49,7 @@ const GameGrid = ({ gameQuery }: Props) => {
                       <GameCard game={game} />
                     </div>
                   ))}
-                </React.Fragment>
+                </React.Fragment> 
               ))}
         </div>
       </InfiniteScroll>

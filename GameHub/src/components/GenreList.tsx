@@ -2,10 +2,10 @@ import useGenres, { type Genre } from "../hooks/useGenres";
 
 interface Props {
   setGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ setGenre, selectedGenre }: Props) => {
+const GenreList = ({ setGenre, selectedGenreId }: Props) => {
   const { error, data, isLoading } = useGenres();
 
   if (error) return null;
@@ -30,7 +30,7 @@ const GenreList = ({ setGenre, selectedGenre }: Props) => {
             />
             <div
               className={`genre-text ${
-                genre.id === selectedGenre?.id ? "fw-bold fs-5" : "fs-6"
+                genre.id === selectedGenreId ? "fw-bold fs-5" : "fs-6"
               }
             `}
               onClick={() => {
