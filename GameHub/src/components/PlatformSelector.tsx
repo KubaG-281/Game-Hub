@@ -1,3 +1,4 @@
+import usePlatform from "../hooks/usePlatform";
 import { usePlatforms, type Platform } from "../hooks/usePlatforms";
 
 interface Props {
@@ -6,8 +7,7 @@ interface Props {
 }
 
 const PlatformSelector = ({ selectPlatform, selectedPlatformId }: Props) => {
-  const { data: platforms } = usePlatforms();
-  const platform = platforms.results.find((p) => p.id === selectedPlatformId);
+  const platform = usePlatform(selectedPlatformId);
 
   const { data, error } = usePlatforms();
 
