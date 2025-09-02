@@ -33,6 +33,7 @@ const PlatformListIcon = ({ platforms }: Props) => {
     <div>
       {platforms.map((p) => {
         const Icon = iconMap[p.slug];
+        if (!Icon) return null;
         return (
           <div key={p.id} className="list-inline-item">
             <Icon color="grey" />
