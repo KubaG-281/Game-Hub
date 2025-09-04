@@ -6,6 +6,8 @@ export interface FetchResponse<T> {
   next: string | null;
 } 
 
+
+
 const axiosInstance =  axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
@@ -22,6 +24,10 @@ class APIClient<T>{
 
   getAll = (config?: AxiosRequestConfig) => {
     return axiosInstance.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
+  }
+
+  getGameDetails = () => {
+    return axiosInstance.get<T>(this.endpoint).then(res => res.data)
   }
 
 }
