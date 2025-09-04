@@ -1,11 +1,10 @@
-import useGenres, { type Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
+import useGameQueryStore from "../store";
 
-interface Props {
-  setGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
+const GenreList = () => {
+  const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setGenreId = useGameQueryStore((s) => s.setGenreId);
 
-const GenreList = ({ setGenre, selectedGenreId }: Props) => {
   const { error, data, isLoading } = useGenres();
 
   if (error) return null;
@@ -30,11 +29,11 @@ const GenreList = ({ setGenre, selectedGenreId }: Props) => {
             />
             <div
               className={`genre-text ${
-                genre.id === selectedGenreId ? "fw-bold fs-5" : "fs-6"
+                genre.id === genreId ? "fw-bold fs-5" : "fs-6"
               }
             `}
               onClick={() => {
-                setGenre(genre);
+                setGenreId(genre.id);
               }}
             >
               {genre.name}

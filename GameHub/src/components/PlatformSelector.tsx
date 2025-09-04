@@ -1,13 +1,12 @@
 import usePlatform from "../hooks/usePlatform";
-import { usePlatforms, type Platform } from "../hooks/usePlatforms";
+import { usePlatforms } from "../hooks/usePlatforms";
+import useGameQueryStore from "../store";
 
-interface Props {
-  selectPlatform: (platform: Platform) => void;
-  selectedPlatformId?: number;
-}
+const PlatformSelector = () => {
+  const platformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
 
-const PlatformSelector = ({ selectPlatform, selectedPlatformId }: Props) => {
-  const platform = usePlatform(selectedPlatformId);
+  const platform = usePlatform(platformId);
 
   const { data, error } = usePlatforms();
 
@@ -27,7 +26,7 @@ const PlatformSelector = ({ selectPlatform, selectedPlatformId }: Props) => {
         {data?.results.map((platform) => (
           <li key={platform.id}>
             <button
-              onClick={() => selectPlatform(platform)}
+              onClick={() => setPlatformId(platform.id)}
               className="dropdown-item"
             >
               {platform.name}

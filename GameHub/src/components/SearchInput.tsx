@@ -1,10 +1,9 @@
 import { useRef } from "react";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSearch: (text: string) => void;
-}
+const SearchInput = () => {
+  const setSearchText = useGameQueryStore((s) => s.setSearchText);
 
-const SearchInput = ({ onSearch }: Props) => {
   const searchInput = useRef<HTMLInputElement>(null);
 
   return (
@@ -12,7 +11,7 @@ const SearchInput = ({ onSearch }: Props) => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          if (searchInput.current) onSearch(searchInput.current.value);
+          if (searchInput.current) setSearchText(searchInput.current.value);
         }}
       >
         <input
