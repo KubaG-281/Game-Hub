@@ -13,6 +13,8 @@ export interface Game {
   metacritic: number;
   genres: Genre[];
   rating_top: number;
+  slug: string;
+  description_raw: string;
 } 
 
 const apiClient = new APIClient<Game>('/games')

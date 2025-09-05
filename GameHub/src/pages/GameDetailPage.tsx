@@ -1,25 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import APIClient from "../services/apiClient";
-
-interface GameDetailsResponse {
-  name: string;
-  description_raw: string;
-}
+import useGame from "../hooks/useGame";
 
 const GameDetailPage = () => {
-  const param = useParams();
-  const apiClient = new APIClient<GameDetailsResponse>(`/games/${param.slug}`);
+  const { slug } = useParams();
 
-  const { data } = useQuery({
-    queryKey: ["games", param.slug],
-    queryFn: () => apiClient.getGameDetails(),
-  });
+  const { data: game, isLoading, error } = useGame(slug!);
+
+  if (isLoading) return <div>Loading...</div>;
+
+  if (error || !game) throw error;
 
   return (
     <>
-      <h1>{data?.name}</h1>
-      <div>{data?.description_raw}</div>
+      <h1>{game.name}</h1>
+      <div>{game.description_raw}</div>
     </>
   );
 };

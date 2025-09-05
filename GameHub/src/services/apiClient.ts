@@ -26,8 +26,8 @@ class APIClient<T>{
     return axiosInstance.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
   }
 
-  getGameDetails = () => {
-    return axiosInstance.get<T>(this.endpoint).then(res => res.data)
+  getGameDetails = (id: number | string) => {
+    return axiosInstance.get<T>(this.endpoint + '/' + id).then(res => res.data)
   }
 
 }

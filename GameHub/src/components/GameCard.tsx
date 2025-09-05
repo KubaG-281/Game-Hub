@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Game } from "../hooks/useGames";
 import getCroppedImageUrl from "../services/imageUrl";
 import CardCriticScore from "./CardCriticScore";
@@ -21,7 +22,14 @@ const GameCard = ({ game }: Props) => {
           />
           <CardCriticScore criticScore={game.metacritic} />
         </div>
-        <h5 className="card-title">{game.name}</h5>
+        <div>
+          <Link
+            className="fw-semibold fs-5 text-white link-secondary link-underline-opacity-0"
+            to={`/games/${game.slug}`}
+          >
+            {game.name}
+          </Link>
+        </div>
         <Emoji rating={game.rating_top} />
       </div>
     </div>
