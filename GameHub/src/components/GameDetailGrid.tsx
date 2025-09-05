@@ -1,4 +1,4 @@
-import type { Game } from "../entities/Game";
+import type Game from "../entities/Game";
 import CardCriticScore from "./CardCriticScore";
 import DefinitionItem from "./DefinitionItem";
 
