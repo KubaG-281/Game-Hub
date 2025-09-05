@@ -4,13 +4,13 @@ interface Props {
 
 const CardCriticScore = ({ criticScore }: Props) => {
   return (
-    <div
-      className={`border border-2 border-grey ${
+    <span
+      className={`border border-2 border-grey px-2 rounded ${
         criticScore > 80 ? "bg-success" : "bg-danger"
-      } px-2 rounded`}
+      }`}
     >
       {criticScore}
-    </div>
+    </span>
   );
 };
 

@@ -1,5 +1,6 @@
 import type { Genre } from "./Genre";
 import type { Platform } from "./Platform";
+import type { Publisher } from "./Publisher";
 
 
 export interface Game {
@@ -12,4 +13,5 @@ export interface Game {
   rating_top: number;
   slug: string;
   description_raw: string;
+  publishers: Publisher[]
 }
