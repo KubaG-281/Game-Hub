@@ -1,7 +1,6 @@
 import type { Game } from "../entities/Game";
 import CardCriticScore from "./CardCriticScore";
 import DefinitionItem from "./DefinitionItem";
-import GameTrailer from "./GameTrailer";
 
 interface Props {
   game: Game;
@@ -40,7 +39,6 @@ const GameDetailGrid = ({ game }: Props) => {
           </DefinitionItem>
         </div>
       </div>
-      <GameTrailer gameId={game.id} />
     </>
   );
 };
