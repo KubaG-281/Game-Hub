@@ -13,4 +13,4 @@ const useGame = (slug: string) =>
   
 
 
-export default useGame
+export default useGame 
