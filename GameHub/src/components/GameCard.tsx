@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { Game } from "../hooks/useGames";
+import type { Game } from "../entities/Game";
 import getCroppedImageUrl from "../services/imageUrl";
 import CardCriticScore from "./CardCriticScore";
 import Emoji from "./Emoji";
