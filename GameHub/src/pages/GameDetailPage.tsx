@@ -8,6 +8,7 @@ const GameDetailPage = () => {
   const { data: game, isLoading, error } = useGame(slug!);
 
   if (isLoading) return <div>Loading...</div>;
+
   if (error || !game) throw error;
 
   return (
