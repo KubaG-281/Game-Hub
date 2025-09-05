@@ -14,12 +14,16 @@ const GameDetailPage = () => {
   if (error || !game) throw error;
 
   return (
-    <div className="">
-      <h1>{game.name}</h1>
-      <ExpandableText>{game.description_raw}</ExpandableText>
-      <GameDetailGrid game={game} />
-      <GameTrailer gameId={game.id} />
-      <GameGridScreenshots gameId={game.id} />
+    <div className="row">
+      <div className="col-md-6">
+        <h1>{game.name}</h1>
+        <ExpandableText>{game.description_raw}</ExpandableText>
+        <GameDetailGrid game={game} />
+      </div>
+      <div className="col-md-6">
+        <GameTrailer gameId={game.id} />
+        <GameGridScreenshots gameId={game.id} />
+      </div>
     </div>
   );
 };
